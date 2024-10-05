@@ -1,0 +1,107 @@
+\noindent The actual data in the dataframe is actually an \textit{ndarray} in NumPy (A multidimensional homogeneous array). That means we can do operations on the data using NumPy. For example, if you have a dataframe \textit{df1}, the \textit{ndarray} would be extracted by doing
+
+\begin{lstlisting}[style=python]
+nd1 = df1.values
+\end{lstlisting}
+
+\noindent Accessing a cell in the array is as simple as:
+
+\begin{lstlisting}[style=python]
+val = nd1[row,col]
+\end{lstlisting}
+
+\noindent You can also access subarrays by indexing with the colon:
+
+\begin{lstlisting}[style=python]
+sub = nd1[0:3,1:3]
+\end{lstlisting}
+
+\noindent would capture the rectangular subarray from the first to the third rows and the second to third columns.
+
+\paragraph{Indexing} Note that the second part of the index is 1 past the actual index that will be the last, so 0:3 only pulls out 0,1, and 2.
+
+\noindent Like in MATLAB, you can pull out everything using just the colon. For example:
+
+\begin{lstlisting}[style=python]
+sub = nd1[3,:]
+\end{lstlisting}
+
+\noindent would retrieve all columns of row 3.
+
+\paragraph{Negative indexing} To get the last index, you can use negative numbers (the last index would be -1, second to last -2, etc.)
+
+\begin{lstlisting}[style=python]
+sub = nd1[-1,1:3]
+\end{lstlisting}
+
+\noindent would get columns 1,2 of the last row.
+
+\paragraph{Boolean indexing/masking} Suppose we want to get the values in an array, $a$, which are all less than the mean. NumPy's masking feature makes it really intuitive, as all you need to do is:
+
+\begin{lstlisting}[style=python]
+lessThanMean = a[a<a.mean()]
+\end{lstlisting}
+
+\noindent The array $a < a.mean()$ would be a boolean array, which might look like
+\begin{lstlisting}[style=python]
+[[True, True, False, False]]
+\end{lstlisting}
+
+\paragraph{Assignment} Assigning values in an array is easy using the NumPy notation. For example, say we wanted to replace the values in the first 2x2 square of \textit{nd1} with the 2x2 square in nd2 with columns 2 and 3, and rows 3, and 4. The operation would be:
+
+\begin{lstlisting}[style=python]
+nd1[0:2,0:2] = nd2[-2:,2:4]
+\end{lstlisting}
+
+\paragraph{Creating an array} Creating a numpy array is as easy as passing in a normal python list into the array method:
+
+\begin{lstlisting}[style=python]
+import numpy as np
+
+print np.array([1,2,3])
+\end{lstlisting}
+
+\noindent Creating a 2D $mxn$ array is as simple as passing in a $m$-long list of $n$-tuples.
+
+\begin{lstlisting}[style=python]
+import numpy as np
+
+print np.array([(1,2,3),(4,5,6)])
+\end{lstlisting}
+
+\noindent would output
+
+\begin{lstlisting}[style=python]
+[[1,2,3]
+ [4,5,6]]
+\end{lstlisting}
+
+\paragraph{More initializers} You can also create arrays with certain initial values.
+
+\begin{lstlisting}[style=python]
+np.empty((5,3,2))
+\end{lstlisting}
+
+\noindent initializes an "empty" $5x3x2$ dimensional array. The values in the array are actually whatever was in the memory locations of the array pointers, so the output could look like garbage.
+
+\begin{lstlisting}[style=python]
+np.ones((5,4), dtype=np.int)
+\end{lstlisting}
+
+\noindent creates a $5x4$ array, where the value in each cell is the integer 1.
+
+\begin{lstlisting}[style=python]
+np.random.random((5,4))
+\end{lstlisting}
+
+\noindent creates a $5x4$ array with random numbers from a uniform distribution in [0.0,1.0). An example result could be:
+
+\begin{lstlisting}[style=python]
+[[ 0.82897637  0.36449978  0.91209931  0.96307279]
+ [ 0.63777312  0.24482194  0.5817991   0.18043012]
+ [ 0.85871221  0.98874123  0.68491831  0.53831711]
+ [ 0.52908238  0.81083147  0.97440602  0.81032768]
+ [ 0.98566222  0.38902445  0.16922005  0.0873198 ]]
+\end{lstlisting}
+
+\noindent Other methods or fields, such as $sum()$ or $size$ can be looked up in online documentation.

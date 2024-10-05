@@ -1,0 +1,150 @@
+\chapter{Python and Basic Interfaces}
+\section{Dataframes}
+\noindent A dataframe is a data structure in \textit{pandas} that allows multiple datasets to be mapped to the same indices. For example, a data frame that maps dates to closing prices could be:
+
+\begin{center}
+    \begin{tabular}{lcccc}
+         & \textbf{SPY} & \textbf{AAPL} & \textbf{GOOG} & \textbf{GLD}\\
+        2000-01-09 & 100.01 & 50.89 & NaN & NaN\\
+        2000-01-10 & 100.05 & 50.91 & NaN & NaN\\
+        \vdots & \vdots & \vdots & \vdots & \vdots \\
+        2015-12-31 & 200.89 & 600.25 & 559.50 & 112.37
+    \end{tabular}
+\end{center}
+
+\noindent The indices in this dataframe are the dates on the left, and the closing prices for that date are stored in each column. The "NaN"s appear because \textit{GOOG} and \textit{GLD} were not publicly traded during those periods. 
+
+\subsection{Reading CSVs into Dataframes}
+\noindent To begin using the dataframes, you need data first. Historical stock data from Yahoo is provided in the form of a CSV file, which can be easily read into a dataframe using \textit{pandas}'s function \textit{read\_csv()}.\\
+
+\noindent\begin{minipage}{\linewidth}
+\noindent\textit{example 1:}
+\lstinputlisting[style=python]{code_examples/dataframes_1.py}
+\end{minipage}
+
+\noindent This example reads in a CSV corresponding to the historic data for \textit{AAPL} (Apple, Inc) into the variable \textit{df}. \textit{df} is a \textit{DataFrame} object, which means any \textit{DataFrame} methods may be used on it.\\
+
+
+\noindent\begin{minipage}{\linewidth}
+\noindent\textit{example 2:} An example of a method that can be used is \textit{max()}, which returns the maximum value in the range.\\
+\lstinputlisting[style=python]{code_examples/dataframes_2.py}
+\end{minipage}
+
+\subsection{Plotting}
+\noindent \textit{Matplotlib} can be used to plot the data in the dataframes, as pandas can conveniently tap into the \textit{matplotlib} API. Plotting data in a dataframe is as simple as calling \textit{plot()} on one of the series in the frame.\\
+
+\noindent\begin{minipage}{\linewidth}
+\noindent\textit{example 3:} Plotting the Adjusted Close\footnote{Adjusted Close is a historically-adjusted value of the stock that takes into account corporate actions (such as stock splits) and distributions (such as dividends issued).} price of \textit{AAPL}
+\lstinputlisting[style=python]{code_examples/dataframes_3.py}
+\end{minipage}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{images/adj_close.png}
+    \caption{Plot of adjusted close price for \textit{IBM} over all time. Notice that the indices are just numbers rather than dates and the plot goes backwards in time to the right}
+\end{figure}
+
+\noindent\begin{minipage}{\linewidth}
+
+\noindent\textit{example 4:} Plotting multiple columns is as simple as adding a more entries to the selection statement
+
+\lstinputlisting[style=python]{code_examples/dataframes_4.py}
+\end{minipage}
+
+\subsection{Issues}
+\noindent There are some issues with the data that need to be solved to effectively use it in the way we want.
+
+\paragraph{Trading days} The NYSE only trades for a certain number of days per year, which means that indexing by dates will return some results when the exchanges were not open. This poses problems for trying to pull out certain date ranges from the dataframe.
+
+\paragraph{Multiple stocks} One of the dataframe's powers is to be able to contain multiple ranges, which means that we need to be able to retrieve multiple datasets and store them into the dataframe.
+
+\paragraph{Date order} The data in the Yahoo CSV are in reverse chronological order (most recent at the top), so any analysis on the dataframe will be going backwards in time, which is not ideal.
+
+\subsection{Solution to the issues}
+\noindent To solve the trading days problem, we'll use an \ac{etf} called \textit{SPY} (S\&P 500) to serve as a basis for what days the stock market is open. The only days that exist in the dataset for this \ac{etf} are the days the stock market traded, so if we use this as a reference and use joining on the dataframes, we can recover data on only the days which had trading.\\
+
+\noindent\begin{minipage}{\linewidth}
+\noindent\textit{example 5:} Using joins to get only traded days
+
+\lstinputlisting[style=python,firstline=1,lastline=7]{code_examples/dataframes_5.py}
+\end{minipage}
+
+\noindent If we were to print out df1, the output would be:
+\begin{lstlisting}[style=python]
+Empty DataFrame
+Columns: []
+Index: [2010-01-22 00:00:00, 2010-01-23 00:00:00, 2010-01-25 00:00:00, 2010-01-26 00:00:00]
+\end{lstlisting}
+
+\noindent This empty dataframe will be the basis for the data we want to retrieve.
+
+\noindent The next step is to join this dataframe with a dataframe with the data for \textit{SPY}. This will keep only indices of the \textit{SPY} dataframe that also exist in the empty one.\\
+
+\noindent\begin{minipage}{\linewidth}
+\noindent\textit{example 6:} Reading in the new dataframe and joining them
+
+\lstinputlisting[style=python,firstnumber=8,firstline=8,lastline=11]{code_examples/dataframes_5.py}
+\end{minipage}
+
+\noindent\begin{minipage}{\linewidth}
+\noindent The output would now be:
+\begin{lstlisting}[style=python]
+				Adj Close
+2010-01-22		104.34
+2010-01-23		NaN
+2010-01-24		NaN
+2010-01-25		104.87
+2010-01-26		104.43
+\end{lstlisting}
+\end{minipage}
+
+\noindent To get rid of the "NaN"s, you can call \textit{dropna()} on the newly joined dataframe, but there is a better way of joining them such that the "NaN"s don't appear in the first place. The join type is called an \textit{inner} join, which joins at the intersection of the two dataframes. This way, only the dates which are in both will be kept as indices. Everything else will be thrown away.\\
+
+\noindent\begin{minipage}{\linewidth}
+\noindent\textit{example 7:} The inner join
+
+\lstinputlisting[style=python,firstline=16,lastline=16]{code_examples/dataframes_5.py}
+\end{minipage}
+
+\subsection{Multiple stocks}
+\noindent Reading in multiple stocks is as easy as just adding a for loop:\\
+
+\noindent\begin{minipage}{\linewidth}
+\noindent\textit{example 8:} Reading in multiple stocks into a single dataframe
+
+\lstinputlisting[style=python,firstline=19,lastline=28]{code_examples/dataframes_5.py}
+\end{minipage}
+
+\noindent\begin{minipage}{\linewidth}
+\noindent Here's an example of reading and plotting multiple stocks' closing price on one plot\\
+\noindent\textit{example 9:} Reading and plotting multiple stocks
+
+\lstinputlisting[style=python,firstline=31,lastline=77]{code_examples/dataframes_5.py}
+\end{minipage}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{images/adj_close_mar.png}
+    \caption{Plot of adjusted close price for \textit{IBM} and \textit{spy} over the month of April 2010}
+\end{figure}
+
+\subsection{Normalizing}
+\noindent Sometimes when plotting, the values of a stock will be significantly different from the other stocks such that it becomes difficult to tell some of them apart. Normalizing the data allows all of them to start at the same point and then show divergences from the initial point, making it easier to compare them at the same time.\\
+
+\noindent Normalizing the dataframe is as simple as dividing the entire dataframe by its first row
+\noindent\begin{minipage}{\linewidth}
+\noindent\textit{example 10:} Normalizing a dataframe
+
+\lstinputlisting[style=python,firstline=81,lastline=83]{code_examples/dataframes_5.py}
+\end{minipage}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{images/adj_close_normalized.png}
+    \caption{Normalized stock prices over the year 2010}
+\end{figure}
+\newpage
+
+\section{NumPy}
+
+\input{numpy}
