@@ -1,2 +1,1 @@
-# ts_course
-Definitive Guide to Time Series
+# Definitive Guide to Time Series

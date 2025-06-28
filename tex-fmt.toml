@@ -1,0 +1,9 @@
+# tex-fmt.toml
+check = false
+print = false
+wrap = true
+wraplen = 80
+tabsize = 2
+tabchar = "space"
+stdin = false
+verbosity = "warn"
