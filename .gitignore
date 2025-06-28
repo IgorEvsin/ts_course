@@ -2,4 +2,4 @@
 *.out
 *.toc
 *.synctex.gz
-TOC*/
+*.log
