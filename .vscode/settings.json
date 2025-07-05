@@ -1,101 +1,77 @@
 {   "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
     "workbench.iconTheme": "material-icon-theme",
     "editor.minimap.enabled": false,
-    "code-runner.clearPreviousOutput": true,
-    "code-runner.showExecutionMessage": false,
-    "code-runner.saveFileBeforeRun": true,
      "[latex]": {
         "editor.formatOnSave": true,
     },
-    "window.menuBarVisibility": "toggle",
     "latex-workshop.latex.tools": [
         {
-            "name": "pdflatex",
-            "command": "pdflatex",
-            "args": [
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
             "-synctex=1",
             "-interaction=nonstopmode",
             "-file-line-error",
-            "%DOC%"
-            ],
-            "env": {}
+            "%DOCFILE%"
+        ]
         },
         {
-        "name": "latexmk",
-        "command": "latexmk",
-        "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-pdf",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-        ],
-        "env": {}
-        },
-        {
-        "name": "xelatex",
-        "command": "xelatex",
-        "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "%DOC%"
-        ],
-        "env": {}
-        },
-        {
-        "name": "bibtex",
-        "command": "bibtex",
-        "args": [
-        "%DOCFILE%"
-        ],
-        "env": {}
+        "name": "biber",
+        "command": "biber",
+        "args": ["%DOCFILE%"]
         }
     ],
     "latex-workshop.latex.recipes": [
         {
-        "name": "pdfLaTeX",
+        "name": "pdflatex → biber → pdflatex x2",
         "tools": [
-        "pdflatex"
-        ]
-        },
-        {
-        "name": "latexmk 🔃",
-        "tools": [
-        "latexmk"
-        ]
-        },
-        {
-        "name": "xelatex",
-        "tools": [
-        "xelatex"
-        ]
-        },
-        {
-        "name": "pdflatex ➞ bibtex ➞ pdflatex`×2",
-        "tools": [
-        "pdflatex",
-        "bibtex",
-        "pdflatex",
-        "pdflatex"
-        ]
-        },
-        {
-        "name": "xelatex ➞ bibtex ➞ xelatex`×2",
-        "tools": [
-        "xelatex",
-        "bibtex",
-        "xelatex",
-        "xelatex"
+            "pdflatex",
+            "biber",
+            "pdflatex",
+            "pdflatex"
         ]
         }
     ],
+    "latex-workshop.latex.autoBuild.run": "onSave", // Автосборка при сохранении
+    "latex-workshop.latex.clean.fileTypes": [       // Какие файлы удалять при очистке
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.bcf",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.snm",
+        "*.nav",
+        "*.run.xml"
+    ],
     "files.exclude": {
         "**/*.aux": true,
-        "**/*.synctex.gz": true
+        "**/*.synctex.gz": true,
+        "**/*.bbl": true,
+        "**/*.bcf": true,
+        "**/*.blg": true,
+        "**/*.xml": true,
+        "**/*.toc": true,
+        "**/*.out": true,
+        "**/*.log": true,
     },
     "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
     "latex-workshop.formatting.latex": "tex-fmt",
     "latex-workshop.formatting.tex-fmt.args": [],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.synctex.afterBuild.enabled": true
 }

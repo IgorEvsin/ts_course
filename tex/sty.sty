@@ -1,38 +1,24 @@
-\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[a4paper]{geometry}
+\geometry{a4paper, top=1.3in, bottom=1.3in, left=1in, right=1in}
 \usepackage{amsfonts}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{setspace}
-\usepackage[colorlinks = true,
-            linkcolor = blue
-            urlcolor  = blue,
-            ]{hyperref}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
 \usepackage{acro}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{graphicx}
-\usepackage{geometry}
 \usepackage{subcaption}
 \usepackage{cancel}
 \usepackage{tikz}
-\usepackage{color}
 \usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
     decorations.pathreplacing,decorations.pathmorphing,shapes,%
     matrix,shapes.symbols}
-\geometry{top=1.3in,bottom=1.3in}
-\hypersetup{
-    colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
-}
 
-
-
+\usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
-\usepackage[russian]{babel}
-
+\usepackage[english, russian]{babel}
 
 \definecolor{DarkerGreen}{RGB}{0,179,45}
 
@@ -57,7 +43,6 @@
   punktchain/.style={
     rectangle, 
     rounded corners, 
-    % fill=black!10,
     draw=black, very thick,
     text width=10em, 
     minimum height=3em, 
@@ -79,6 +64,7 @@
   tuborg/.style={decorate},
   tubnode/.style={midway, right=2pt},
 }
-
-\usetikzlibrary{shapes,arrows}
 \usepackage{verbatim}
+\usepackage{csquotes}
+\usepackage[backend=biber, style=gost-numeric]{biblatex}
+\addbibresource{books/ts_course.bib}

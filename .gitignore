@@ -3,3 +3,8 @@
 *.toc
 *.synctex.gz
 *.log
+*.bbl
+*.bcf
+*.blg
+main.run.xml
+main-blx.bib
