@@ -122,7 +122,7 @@ pdflatex -output-directory=./ -interaction=nonstopmode src/main.tex
 - Источники: указывайте для заимствованных изображений
 ## Сборка проекта
 ### Требования
-- [TeX Live](https://www.tug.org/texlive/) или [MiKTeX](https://miktex.org/)
+- [TeX Live](https://www.tug.org/texlive/) (Рекомендуем) или [MiKTeX](https://miktex.org/)
 - Python 3.8+ (для генерации графиков)
 - Рекомендуемые пакеты: `pdflatex`, `bibtex`, `make`
 ### Команды сборки

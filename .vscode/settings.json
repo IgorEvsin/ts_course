@@ -1,7 +1,4 @@
-{   "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.minimap.enabled": false,
-     "[latex]": {
+{    "[latex]": {
         "editor.formatOnSave": true,
     },
     "latex-workshop.latex.tools": [
