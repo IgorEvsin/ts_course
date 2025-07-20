@@ -9,14 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: texlive/texlive:latest  # Или texlive/texlive:small (ещё меньше)
+      image: texlive/texlive:latest
     steps:
       - uses: actions/checkout@v4
       - run: |
-          # Установка biber (если его нет в базовом образе)
+          # Установка biber и сборка LaTeX
           apt-get update && apt-get install -y biber
-          
-          # Сборка LaTeX
           pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main.tex
           biber main
           pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main.tex
