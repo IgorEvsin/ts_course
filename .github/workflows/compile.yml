@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: texlive/texlive:small
+      image: texlive/texlive:latest
     steps:
       - uses: actions/checkout@v4
       - run: |
