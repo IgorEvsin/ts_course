@@ -50,7 +50,7 @@ git checkout -b type/краткое-описание
 ### 3. Внесение изменений
 **Для текста учебника**:
 - Размещайте изменения в соответствующих файлах в `src/chapters/`
-- Используйте семантические коммиты:
+- Используйте [семантические коммиты](https://www.conventionalcommits.org/en/v1.0.0/):
   ```bash
   git commit -m "feat: добавить раздел про ARIMA модели"
   git commit -m "fix: исправить опечатку в главе 2"
@@ -146,7 +146,7 @@ pdflatex -output-directory=./ -interaction=nonstopmode src/main.tex
 ### Требования
 - [TeX Live](https://www.tug.org/texlive/) (Рекомендуем) или [MiKTeX](https://miktex.org/)
 - Python 3.8+ (для генерации графиков)
-- Рекомендуемые пакеты: `pdflatex`, `bibtex`, `make`
+- Рекомендуемые пакеты: `pdflatex`, `biber`, `make`
 ### Команды сборки
 Базовая компиляция:
 ```bash
@@ -154,13 +154,9 @@ pdflatex -output-directory=./ -interaction=nonstopmode src/main.tex
 ```
 Полная сборка (с библиографией и перекрестными ссылками):
 ```bash
-pdflatex main.tex
-bibtex main.aux
-pdflatex main.tex
-pdflatex main.tex
-```
-Или используйте Makefile (если доступен):
-```bash
-make all
+pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main.tex
+biber main
+pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main.tex
+pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main.tex
 ```
 ## 🤝 Спасибо за ваш вклад в развитие учебника! 🤝
