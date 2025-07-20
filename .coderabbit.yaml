@@ -27,7 +27,7 @@ reviews:
         code, expressiveness, and performance.
     - path: '**/*.tex'
       instructions: >-
-        Here is a LaTeX code for a textbook on time series.
+        Here is a LaTeX code for a textbook on time series analysis.
         Your task is to check the adequacy and fairness of the educational material in this file.
         You can argue with the theses proposed in this manual,
         as well as provide links to sources where the arguments of our textbook are refuted.
