@@ -1,0 +1,103 @@
+\begin{tikzpicture}
+  \begin{axis}[width=14cm, height=15cm,
+      xmin=370,
+      xmax=730,
+      ymin=,
+      ymax=,
+      ymajorgrids=true,
+      xmajorgrids=true,
+      minor tick style={gray!80, thick},
+      major tick style={gray, thick},
+      minor tick num=1,
+      %ytick={0,0.5,1,1.5,...,2},                       % <-----
+      % eigene Achsenbeschriftung
+      grid style=dashed,                           % <----- dotted oder
+      legend pos= south west,                       % <----- Position
+      % der Legende
+      legend style={at={(0.5,1.05)},              % <----- Legende außerhalb
+      anchor=south,legend columns=-1, draw=none}, % <----- Legende außerhalb
+      legend style={draw=none, nodes=right},       % <----- ohne
+      % Kasten, links ausgerichtet
+      xlabel={\small Wellenlänge [nm]},
+      ylabel={\small Absorption [\si{\%}]},
+      tick label style={font=\scriptsize},         % <----- Schrift Achsenwerte
+      yticklabel style={/pgf/number format/fixed},{% gilt für x und
+        % y, auch separat möglich
+        /pgf/number format/.cd,
+        use comma,% Komma als Dezimaltrenner
+        1000 sep = {}% keine Tausendertrennung
+      },
+      yticklabel style={
+        /pgf/number format/.cd,
+        fixed zerofill,  % mit Nullen auffüllen
+      precision=1},
+      xticklabel style={
+        /pgf/number format/.cd,
+        fixed zerofill,  % mit Nullen auffüllen
+      precision=0},% <----- Nachkommastelle 0 bis 3
+    ]
+
+    % temp.dat übernimmt Daten von oben
+    % data.dat übernimmt Daten aus bestimmter Datei (s. linke Spalte)
+
+    %\addplot[mark=o, only marks] table {temp.dat};
+
+    %\addplot+[mark=, dotted, blue3!20, thick, smooth, mark
+    % options={very thick,draw=white}] table {data.dat};
+
+    %\shade[left color=blue!20,right color=red!20] (500,1) rectangle (800,200);
+
+    \pgfspectra[begin=370,end=730,height=0.3cm,
+      width=12.42cm % Breite des Spektrums im Diagramm
+    ]
+    \addplot+[mark=, red, thick, smooth, mark options={very
+    thick,draw=white}] table {diagram/data_old.dat};
+
+    \addplot+[mark=, green2, thick, smooth, mark options={very
+    thick,draw=white}] table {diagram/data_fresh.dat};
+
+    %\node[coordinate,pin ={[rotate=90]right:%\scriptsize{\textcolor{gray}{589}
+    %}}] at (axis cs:587.4,7.9) { };
+    %\node[coordinate,pin ={[rotate=90]right:%\scriptsize{\textcolor{gray}{765}
+    %}}] at (axis cs:765.2,5.4) { };
+
+
+    %\addplot[raw gnuplot, smooth, black!30, thick, dotted] gnuplot
+    % {plot "data.dat" using ($1):($2/1) smooth sbezier}; %\label{dia:nacl}
+
+    %\addplot+[mark=*, thick, smooth,mark options={very
+    % thick,draw=white}] table {data.dat}; %Diese Daten kommen aus
+    % der Datei "data.dat"
+
+    %\addplot gnuplot [raw gnuplot, smooth, black, thick] {plot
+    % 'data.csv' using ($1):($2/1) smooth sbezier}; %\label{dia:nacl}
+
+
+    %\addplot+[mark=*, thick, smooth,mark options={very
+    % thick,draw=white}] table [x=Zeit, y=Temperatur, col sep=comma] {data.dat};
+
+    %($1/1):($2) Bezierkurven zur Glättung
+    %($1):($2/1)
+
+    \addlegendentry{\footnotesize{Chlorophyll-alt}}
+    \addlegendentry{\footnotesize{Chlorophyll-frisch}}
+    %\addlegendentry{\footnotesize{\ch{NH4Cl}}}
+    %\addlegendentry{\footnotesize{Stoff B$_2$}} % <- dekommentieren
+    % für zweite Kurve
+  \end{axis}
+\end{tikzpicture}
+
+%\vspace{0.5cm}
+%Referenzspektrum zu Natrium:
+
+%\pgfspectrawrite[na.dat]{Na}
+%\pgfspectra[width=10cm,element = Na,
+% Imin=0.02,begin=400,end=800,axis,axis step=50,axis
+% ticks=4,back=visible40] % oder manuell mit lines={589,589.6}
+% Datenbank NIST, Imin=0.01 alle Linien
+
+%\vspace{0.5cm}
+%Mit dem Paket \verb|pgf-spectra| sind viele Spektren und Anpassungen
+% möglich. Das Manual dazu wird verlinkt unter
+% \href{https://ftp.mpi-inf.mpg.de/pub/tex/mirror/ftp.dante.de/pub/tex/graphics/pgf/contrib/pgf-spectra/pgf-spectraManual.pdf}{\texttt{https://ctan.org}}
+%\input{tabelle}
