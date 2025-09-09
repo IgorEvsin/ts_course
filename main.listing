@@ -1,5 +1,14 @@
 [gsn]  fas  \end {pythonexample}
 
+\noindent
+\begin{minipage}{\linewidth}
+
+  \noindent\textit{example 4:} Plotting multiple columns is as simple
+  as adding a more entries to the selection statement
+
+  \lstinputlisting[style=python]{code_examples/dataframes_4.py}
+\end{minipage}
+
 \section*{Определение 1.3} Временным рядом \( Y_t \) называется
 набор значений траектории случайного процесса,
 измеренных в наблюдаемые моменты времени. Он представляет собой
