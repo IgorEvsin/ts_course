@@ -117,6 +117,30 @@
   \end{mydefinition}
 }
 
+%- Абстракт в начале  (просто текст) % поискать abstract дфеуч
+%- Краткие примеры  сделали серым, надо попрозрачнее
+%-куски кода (это есть из python_higlghtligting)
+%- Небольшие бизнес-кейсы \defn
+%- Дальнейшее чтение просто список
+%- Вопросы на закрепление /proof
+%- Практические вопросы
+
+
+%\begin{titlething}
+%  Formatting for title + author etc., perhaps even with
+%\end{titlething}
+%\maketitle
+%\begin{abstract}
+%  abstract-text
+%\end{abstract}
+%\section{First bit}
+%If you want to ramp your text straight onto the title page, start the text at
+%something that does not cause a page break, like a section.  Here's a handy
+%place to introduce some of your woofy conventions, like quotes in equations.
+%\chapter{New Page}
+%A new chapter starts a new page.
+
+
 %% Команда для блока питон кода
 %\lstdefinestyle{mypython}{
 %  language=Python,
@@ -223,59 +247,61 @@
 %% ============================
 %% Assumption
 %% ============================
-%\newtcbtheorem[use counter from=mydefinition]{myassumption}{Assumption}
-%{
-%  enhanced,
-%  frame hidden,
-%  titlerule=0mm,
-%  toptitle=1mm,
-%  bottomtitle=1mm,
-%  fonttitle=\bfseries\large,
-%  coltitle=black,
-%  colbacktitle=asumscol!40!white,
-%  colback=asumscol!20!white,
-%}{asum}
+\newtcbtheorem[use counter from=mydefinition]{myassumption}{Assumption}
+{
+  enhanced,
+  frame hidden,
+  titlerule=0mm,
+  toptitle=1mm,
+  bottomtitle=1mm,
+  fonttitle=\bfseries\large,
+  coltitle=black,
+  colbacktitle=asumscol!40!white,
+  colback=asumscol!20!white,
+}{asum}
 
-%\NewDocumentCommand{\asum}{m+m}{
-%  \begin{myassumption}{#1}{}
-%    #2
-%  \end{myassumption}
-%}
+\NewDocumentCommand{\asum}{m+m}{
+  \begin{myassumption}{#1}{}
+    #2
+  \end{myassumption}
+}
 
-%\NewDocumentCommand{\asumr}{mm+m}{
-%  \begin{myassumption}{#1}{#2}
-%    #3
-%  \end{myassumption}
-%}
+\NewDocumentCommand{\asumr}{mm+m}{
+  \begin{myassumption}{#1}{#2}
+    #3
+  \end{myassumption}
+}
 
 %% ============================
 %% Theorem
 %% ============================
 
-%\newtcbtheorem[use counter from=mydefinition]{mytheorem}{Theorem}
-%{
-%  enhanced,
-%  frame hidden,
-%  titlerule=0mm,
-%  toptitle=1mm,
-%  bottomtitle=1mm,
-%  fonttitle=\bfseries\large,
-%  coltitle=black,
-%  colbacktitle=thmscol!40!white,
-%  colback=thmscol!20!white,
-%}{thm}
+% TODO: разобраться, как сделать попрозрачнее
+\newtcbtheorem[use counter from=mydefinition]{mytheorem}{Theorem}
+{
+  enhanced,
+  frame hidden,
+  titlerule=0mm,
+  toptitle=1mm,
+  bottomtitle=1mm,
+  fonttitle=\bfseries\large,
+  coltitle=black,
+  colbacktitle=thmscol!40!white,
+  colback=thmscol!20!white,
+}{thm}
 
-%\NewDocumentCommand{\thm}{m+m}{
-%  \begin{mytheorem}{#1}{}
-%    #2
-%  \end{mytheorem}
-%}
+\NewDocumentCommand{\thm}{m+m}{
+  \begin{mytheorem}{#1}{}
+    #2
+  \end{mytheorem}
+}
 
-%\NewDocumentCommand{\thmr}{mm+m}{
-%  \begin{mytheorem}{#1}{#2}
-%    #3
-%  \end{mytheorem}
-%}
+\NewDocumentCommand{\thmr}{mm+m}{
+  \begin{mytheorem}{#1}{#2}
+    #3
+  \end{mytheorem}
+}
+
 
 %\newenvironment{thmpf}{
 %  {\noindent{\it \textbf{Proof for Theorem.}}}
@@ -515,22 +541,22 @@
 %% ============================
 
 
-%\newenvironment{myexample}{
-%  \tcolorbox[blanker,breakable,left=5mm,parbox=false,
-%    before upper={\parindent15pt},
-%    after skip=10pt,
-%  borderline west={1mm}{0pt}{clmscol!40!white}]
-%}{
-%  \textcolor{clmscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$}
-%  \endtcolorbox
-%}
+\newenvironment{myexample}{
+  \tcolorbox[blanker,breakable,left=5mm,parbox=false,
+    before upper={\parindent15pt},
+    after skip=10pt,
+  borderline west={1mm}{0pt}{clmscol!40!white}]
+}{
+  \textcolor{clmscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$}
+  \endtcolorbox
+}
 
-%\NewDocumentCommand{\exm}{m+m}{
-%  \begin{myexample}
-%    {\noindent{\it \textbf{Example : #1 }}}\\
-%    #2
-%  \end{myexample}
-%}
+\NewDocumentCommand{\exm}{m+m}{
+  \begin{myexample}
+    {\noindent{\it \textbf{Example : #1 }}}\\
+    #2
+  \end{myexample}
+}
 
 
 %% ============================
