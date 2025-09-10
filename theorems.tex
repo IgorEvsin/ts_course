@@ -89,7 +89,7 @@
 % ============================
 % Definition
 % ============================
-\newtcbtheorem[number within=section]{mydefinition}{Definition} %%
+\newtcbtheorem[number within=section]{mydefinition}{Определение} %%
 % Подбирает номер секции
 {
   enhanced,
@@ -116,13 +116,14 @@
 }
 
 %- Абстракт в начале  (просто текст) % поискать abstract дфеуч
-%- Краткие примеры  сделали серым, надо попрозрачнее
+%- Краткие примеры  сделали серым, надо попрозрачнее .done
 %-куски кода (это есть из python_higlghtligting)
 %- Небольшие бизнес-кейсы \defn
 %- Дальнейшее чтение просто список
-%- Вопросы на закрепление /proof
-%- Практические вопросы
-
+%- Вопросы на закрепление /proof .done
+%- Практические вопросы?
+% - Определения \def . done
+%TODO: Сделать краткие примеры попрозрачнее
 
 %\begin{titlething}
 %  Formatting for title + author etc., perhaps even with
@@ -264,6 +265,8 @@
   coltitle=black,
   colbacktitle=asumscol!40!white,
   colback=asumscol!20!white,
+  opacityback=0.7, % Параметр, который отвечает за прозрачность
+  opacitybacktitle=0.9
 }{asum}
 
 \NewDocumentCommand{\asum}{m+m}{
@@ -279,11 +282,11 @@
 }
 
 %% ============================
-%% Theorem
+%% Краткие примеры
 %% ============================
 
 % TODO: разобраться, как сделать попрозрачнее
-\newtcbtheorem[use counter from=mydefinition]{mytheorem}{Theorem}
+\newtcbtheorem[use counter from=mydefinition]{myexample}{Краткие примеры}
 {
   enhanced,
   frame hidden,
@@ -294,18 +297,20 @@
   coltitle=black,
   colbacktitle=thmscol!40!white,
   colback=thmscol!20!white,
+  opacityback=0.4, % Параметр, который отвечает за прозрачность
+  opacitybacktitle=0.5
 }{thm}
 
-\NewDocumentCommand{\thm}{m+m}{
-  \begin{mytheorem}{#1}{}
+\NewDocumentCommand{\exm}{m+m}{
+  \begin{myexample}{#1}{}
     #2
-  \end{mytheorem}
+  \end{myexample}
 }
 
-\NewDocumentCommand{\thmr}{mm+m}{
-  \begin{mytheorem}{#1}{#2}
+\NewDocumentCommand{\exa}{mm+m}{
+  \begin{myexample}{#1}{#2}
     #3
-  \end{mytheorem}
+  \end{myexample}
 }
 
 
@@ -529,27 +534,29 @@
 %}
 
 %% ============================
-%% Fact
+%% Бизнесс-кейс
 %% ============================
 
-%\newtcbtheorem[use counter from=mydefinition]{myfact}{Fact}
-%{
-%  enhanced,
-%  frame hidden,
-%  titlerule=0mm,
-%  toptitle=1mm,
-%  bottomtitle=1mm,
-%  fonttitle=\bfseries\large,
-%  coltitle=black,
-%  colbacktitle=facscol!40!white,
-%  colback=facscol!20!white,
-%}{fact}
+\newtcbtheorem[use counter from=mydefinition]{myfact}{Бизнесс-кейс}
+{
+  enhanced,
+  frame hidden,
+  titlerule=0mm,
+  toptitle=1mm,
+  bottomtitle=1mm,
+  fonttitle=\bfseries\large,
+  coltitle=black,
+  colbacktitle=facscol!40!white,
+  colback=facscol!20!white,
+  opacityback=0.4, % Параметр, который отвечает за прозрачность
+  opacitybacktitle=0.5
+}{fact}
 
-%\NewDocumentCommand{\fact}{+m}{
-%  \begin{myfact}{}{}
-%    #1
-%  \end{myfact}
-%}
+\NewDocumentCommand{\case}{+m}{
+  \begin{myfact}{}{}
+    #1
+  \end{myfact}
+}
 
 %% ============================
 %% Proof
@@ -563,7 +570,7 @@
 %}
 
 %% ============================
-%% Example
+%% Вопросы для самопроверки
 %% ============================
 
 <<<<<<< HEAD
@@ -578,7 +585,7 @@
 %}
 =======
 
-\newenvironment{myexample}{
+\newenvironment{questions}{
   \tcolorbox[blanker,breakable,left=5mm,parbox=false,
     before upper={\parindent15pt},
     after skip=10pt,
@@ -589,13 +596,16 @@
 }
 >>>>>>> 4ac6037 (па)
 
-\NewDocumentCommand{\exm}{m+m}{
-  \begin{myexample}
-    {\noindent{\it \textbf{Example : #1 }}}\\
-    #2
-  \end{myexample}
+\NewDocumentCommand{\que}{m+m}{
+  \begin{questions}
+    {\noindent{\it \textbf{\large{Вопросы для самопроверки} : #1 }}}\\
+    \begin{enumerate}
+        #2
+    \end{enumerate}
+  \end{questions}
 }
 
+<<<<<<< HEAD
 %% ============================
 %% Remark
 %% ============================
@@ -603,26 +613,37 @@
 %\NewDocumentCommand{\rmk}{+m}{
 %  {\it \color{rmkscol!40!white}#1}
 %}
+=======
 
-%\newenvironment{remark}{
-%  \par
-%  \vspace{5pt}
-%  \begin{minipage}{\textwidth}
-%    {\par\noindent{\textbf{Remark.}}}
-%    \tcolorbox[blanker,breakable,left=5mm,
-%      before skip=10pt,after skip=10pt,
-%    borderline west={1mm}{0pt}{rmkscol!20!white}]
-%  }{
-%    \endtcolorbox
-%  \end{minipage}
-%  \vspace{5pt}
-%}
+% ============================
+% Remark
+% ============================
 
-%\NewDocumentCommand{\rmkb}{+m}{
-%  \begin{remark}
-%    #1
-%  \end{remark}
-%}
+
+\NewDocumentCommand{\rmk}{+m}{
+  {\it \color{rmkscol!40!white}#1}
+}
+>>>>>>> 4a40439 (Добавил блоки)
+
+\newenvironment{remark}{
+  \par
+  \vspace{5pt}
+  \begin{minipage}{\textwidth}
+    {\par\noindent{\textbf{Remark.}}}
+    \tcolorbox[blanker,breakable,left=5mm,
+      before skip=10pt,after skip=10pt,
+    borderline west={1mm}{0pt}{rmkscol!20!white}]
+  }{
+    \endtcolorbox
+  \end{minipage}
+  \vspace{5pt}
+}
+
+\NewDocumentCommand{\rmkb}{+m}{
+  \begin{remark}
+    #1
+  \end{remark}
+}
 
 % % Old styles hh
 
