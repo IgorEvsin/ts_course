@@ -125,7 +125,7 @@
 %- Вопросы на закрепление /proof .done
 %- Практические вопросы?
 % - Определения \def . done
-%TODO: Сделать краткие примеры попрозрачнее
+%TODO: Сделать краткие примеры попрозрачнее .done
 
 %\begin{titlething}
 %  Formatting for title + author etc., perhaps even with
@@ -248,7 +248,7 @@
 %% ============================
 %% Assumption
 %% ============================
-\newtcbtheorem[use counter from=mydefinition]{myassumption}{Assumption}
+\newtcbtheorem[use counter from=mydefinition]{myassumption}{Еще какой-то блок}
 {
   enhanced,
   frame hidden,
@@ -566,6 +566,29 @@
     \end{enumerate}
   \end{questions}
 }
+
+%% ============================
+%% Практические вопросы
+%% ============================
+\newenvironment{pr_questions}{
+  \tcolorbox[blanker,breakable,left=5mm,parbox=false,
+    before upper={\parindent15pt},
+    after skip=10pt,
+  borderline west={1mm}{0pt}{green!70!yellow}] % Салатовый цвет
+}{
+  \endtcolorbox % Убраны символы квадрата
+}
+
+\NewDocumentCommand{\prque}{m+m}{
+  \begin{questions}
+    {\noindent{\it \textbf{\large{Практические вопросы} : #1 }}}\\
+    \begin{enumerate}
+        #2
+    \end{enumerate}
+  \end{questions}
+}
+
+
 
 
 % ============================
