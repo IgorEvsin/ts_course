@@ -81,6 +81,27 @@ git checkout -b type/краткое-описание
     \label{fig:acf-pacf}
 \end{figure}
 ```
+
+**Для Смысловых блоков**:
+- В тексте будут особым цветом выделяться следующие блоки:
+```latex
+ \begin{enumerate}
+  \item Подпункт 1
+  \item Подпункт 2
+  \end{enumerate}
+  ```
+- Название файла: `chX_figY_description.ext`
+- Вставка в текст:
+```latex
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/ch2_fig1_acf_pacf.pdf}
+    \caption{Графики ACF и PACF}
+    \label{fig:acf-pacf}
+\end{figure}
+```
+
+
 ### 4. Проверка сборки
 Перед коммитом убедитесь, что проект компилируется:
 ```bash
