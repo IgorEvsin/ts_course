@@ -85,21 +85,11 @@
 
 \definecolor{codecol}{RGB}{225, 225, 235}    % Цвет фона
 \definecolor{titlecodecol}{RGB}{200, 200, 220} % Цвет заголовка
-<<<<<<< HEAD
-\definecolor{softmint}{RGB}{200, 255, 200} % Менее яркий салатовый
-=======
-
->>>>>>> 8b6123a (sdf)
-
 
 % ============================
 % Definition
 % ============================
-<<<<<<< HEAD
-\newtcbtheorem[number within=section]{mydefinition}{Определение} %%
-=======
 \newtcbtheorem[number within=section]{mydefinition}{Definition} %%
->>>>>>> 8b6123a (sdf)
 % Подбирает номер секции
 {
   enhanced,
@@ -125,34 +115,6 @@
   \end{mydefinition}
 }
 
-<<<<<<< HEAD
-%- Абстракт в начале  (просто текст) % поискать abstract дфеуч
-%- Краткие примеры  сделали серым, надо попрозрачнее .done
-%-куски кода (это есть из python_higlghtligting)
-%- Небольшие бизнес-кейсы \defn
-%- Дальнейшее чтение просто список
-%- Вопросы на закрепление /proof .done
-%- Практические вопросы?
-% - Определения \def . done
-%TODO: Сделать краткие примеры попрозрачнее .done
-
-%\begin{titlething}
-%  Formatting for title + author etc., perhaps even with
-%\end{titlething}
-%\maketitle
-%\begin{abstract}
-%  abstract-text
-%\end{abstract}
-%\section{First bit}
-%If you want to ramp your text straight onto the title page, start the text at
-%something that does not cause a page break, like a section.  Here's a handy
-%place to introduce some of your woofy conventions, like quotes in equations.
-%\chapter{New Page}
-%A new chapter starts a new page.
-
-
-=======
->>>>>>> 8b6123a (sdf)
 %% Команда для блока питон кода
 %\lstdefinestyle{mypython}{
 %  language=Python,
@@ -168,7 +130,6 @@
 %  breaklines=true,
 %  frame=none
 %}
-<<<<<<< HEAD
 
 %\newtcblisting[% Важные настройки:
 %  auto counter, % Автонумерация
@@ -215,148 +176,6 @@
 %    #3
 %  \end{pythonexample}%
 %}
-
-
-
-%\newtcblisting[%
-%  auto counter, % Автонумерация
-%  number within=section, % Нумерация в пределах секции
-%  list inside=lol % Для списка листингов (если нужно)
-%]{pythonexample}{%
-%  colback=white,
-%  colframe=black,
-%  listing only,
-%  listing options={%
-%    language=Python,
-%    basicstyle=\ttfamily\small,
-%    numbers=left,
-%    numberstyle=\tiny,
-%    numbersep=5pt,
-%    breaklines=true,
-%    showstringspaces=false,
-%    keywordstyle=\color{blue},
-%    commentstyle=\color{gray},
-%    stringstyle=\color{red}
-%  }
-%}
-
-%% Команда для вставки кода
-%\NewDocumentCommand{\pythoncode}{O{} m m}{%
-%  \begin{pythonexample}[#1]
-%    #3
-%  \end{pythonexample}%
-%}
-
-%\newtcblisting{pythoncode}{
-%  colback=white,
-%  colframe=black,
-%  listing only,
-%  listing options={language=Python}
-%}
-
-% Использование:
-
-
-%% ============================
-%% Assumption
-%% ============================
-\newtcbtheorem[use counter from=mydefinition]{myassumption}{Еще какой-то блок}
-{
-  enhanced,
-  frame hidden,
-  titlerule=0mm,
-  toptitle=1mm,
-  bottomtitle=1mm,
-  fonttitle=\bfseries\large,
-  coltitle=black,
-  colbacktitle=asumscol!40!white,
-  colback=asumscol!20!white,
-  opacityback=0.7, % Параметр, который отвечает за прозрачность
-  opacitybacktitle=0.9
-}{asum}
-=======
->>>>>>> 8b6123a (sdf)
-
-%\newtcblisting[% Важные настройки:
-%  auto counter, % Автонумерация
-%  number within=section, % Нумерация в пределах секции
-%  list inside=lol % Для списка листингов (если нужно)
-%]{pythonexample}{%
-%  % Стилевые настройки:
-%  enhanced,
-%  arc=2pt, % Скругление углов
-%  left=6mm, % Отступ слева (для номеров строк)
-%  colback=codecol, % Цвет фона
-%  colframe=titlecodecol, % Цвет рамки
-%  coltitle=black, % Цвет текста заголовка
-%  fonttitle=\bfseries, % Шрифт заголовка
-%  title=Пример~\thetcbcounter: #2, % Формат заголовка
-%  #1, % Дополнительные параметры
-%  listing only, % Только код, без обычного текста
-%  %listing options={style=mypython}, % Применяем стиль кода
-%  breakable % Разрешаем разрыв блока на страницы
-%}
-
-%% Упрощенная команда для вставки (опционально)
-%\NewDocumentCommand{\pythoncode}{O{} m m}{%
-%  \begin{pythonexample}[#1]{#2}
-%    #3
-%  \end{pythonexample}%
-%}
-
-<<<<<<< HEAD
-%% ============================
-%% Краткие примеры
-%% ============================
-
-% TODO: разобраться, как сделать попрозрачнее
-\newtcbtheorem[use counter from=mydefinition]{myexample}{Краткие примеры}
-{
-  enhanced,
-  frame hidden,
-  titlerule=0mm,
-  toptitle=1mm,
-  bottomtitle=1mm,
-  fonttitle=\bfseries\large,
-  coltitle=black,
-  colbacktitle=thmscol!40!white,
-  colback=thmscol!20!white,
-  opacityback=0.4, % Параметр, который отвечает за прозрачность
-  opacitybacktitle=0.5
-}{thm}
-
-\NewDocumentCommand{\exm}{m+m}{
-  \begin{myexample}{#1}{}
-    #2
-  \end{myexample}
-}
-
-\NewDocumentCommand{\exa}{mm+m}{
-  \begin{myexample}{#1}{#2}
-    #3
-  \end{myexample}
-}
-=======
-%\newtcblisting[% Важные настройки:
-%  auto counter, % Автонумерация
-%  number within=section, % Нумерация в пределах секции
-%  list inside=lol % Для списка листингов (если нужно)
-%]{pythonexample}{
-
-%  colback=white,
-%  colframe=black,
-%  listing only,
-%  listing options={language=Python}
-%  %title=\thetcbcounter: #2
-%}
-
-%\NewDocumentCommand{\pythoncode}{O{} m m}{%
-%  \begin{pythonexample}[#1]{#2}
-%    #3
-%  \end{pythonexample}%
-%}
->>>>>>> 8b6123a (sdf)
-
 
 %\newenvironment{thmpf}{
 %  {\noindent{\it \textbf{Proof for Theorem.}}}
@@ -369,255 +188,6 @@
 %  \endtcolorbox
 %}
 
-<<<<<<< HEAD
-%\NewDocumentCommand{\thmp}{m+m+m}{
-%  \begin{mytheorem}{#1}{}
-%    #2
-%  \end{mytheorem}
-
-%  \begin{thmpf}
-%    #3
-%  \end{thmpf}
-%}
-
-%% ============================
-%% Lemma
-%% ============================
-
-%\newtcbtheorem[use counter from=mydefinition]{mylemma}{Lemma}
-%{
-%  enhanced,
-%  frame hidden,
-%  titlerule=0mm,
-%  toptitle=1mm,
-%  bottomtitle=1mm,
-%  fonttitle=\bfseries\large,
-%  coltitle=black,
-%  colbacktitle=lemscol!40!white,
-%  colback=lemscol!20!white,
-%}{lem}
-
-%\NewDocumentCommand{\lem}{m+m}{
-%  \begin{mylemma}{#1}{}
-%    #2
-%  \end{mylemma}
-%}
-
-%\newenvironment{lempf}{
-%  {\noindent{\it \textbf{Proof for Lemma}}}
-%  \tcolorbox[blanker,breakable,left=5mm,parbox=false,
-%    before upper={\parindent15pt},
-%    after skip=10pt,
-%  borderline west={1mm}{0pt}{lemscol!40!white}]
-%}{
-%  \textcolor{lemscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$}
-%  \endtcolorbox
-%}
-
-%\NewDocumentCommand{\lemp}{m+m+m}{
-%  \begin{mylemma}{#1}{}
-%    #2
-%  \end{mylemma}
-
-%  \begin{lempf}
-%    #3
-%  \end{lempf}
-%}
-
-%% ============================
-%% Corollary
-%% ============================
-
-%\newtcbtheorem[use counter from=mydefinition]{mycorollary}{Corollary}
-%{
-%  enhanced,
-%  frame hidden,
-%  titlerule=0mm,
-%  toptitle=1mm,
-%  bottomtitle=1mm,
-%  fonttitle=\bfseries\large,
-%  coltitle=black,
-%  colbacktitle=corscol!40!white,
-%  colback=corscol!20!white,
-%}{cor}
-
-%\NewDocumentCommand{\cor}{+m}{
-%  \begin{mycorollary}{}{}
-%    #1
-%  \end{mycorollary}
-%}
-
-%\newenvironment{corpf}{
-%  {\noindent{\it \textbf{Proof for Corollary.}}}
-%  \tcolorbox[blanker,breakable,left=5mm,parbox=false,
-%    before upper={\parindent15pt},
-%    after skip=10pt,
-%  borderline west={1mm}{0pt}{corscol!40!white}]
-%}{
-%  \textcolor{corscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$}
-%  \endtcolorbox
-%}
-
-%\NewDocumentCommand{\corp}{m+m+m}{
-%  \begin{mycorollary}{}{}
-%    #1
-%  \end{mycorollary}
-
-%  \begin{corpf}
-%    #2
-%  \end{corpf}
-%}
-
-%% ============================
-%% Proposition
-%% ============================
-
-%\newtcbtheorem[use counter from=mydefinition]{myproposition}{Proposition}
-%{
-%  enhanced,
-%  frame hidden,
-%  titlerule=0mm,
-%  toptitle=1mm,
-%  bottomtitle=1mm,
-%  fonttitle=\bfseries\large,
-%  coltitle=black,
-%  colbacktitle=prpscol!30!white,
-%  colback=prpscol!20!white,
-%}{prop}
-
-%\NewDocumentCommand{\prop}{+m}{
-%  \begin{myproposition}{}{}
-%    #1
-%  \end{myproposition}
-%}
-
-%\newenvironment{proppf}{
-%  {\noindent{\it \textbf{Proof for Proposition.}}}
-%  \tcolorbox[blanker,breakable,left=5mm,parbox=false,
-%    before upper={\parindent15pt},
-%    after skip=10pt,
-%  borderline west={1mm}{0pt}{prpscol!40!white}]
-%}{
-%  \textcolor{prpscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$}
-%  \endtcolorbox
-%}
-
-
-
-%\NewDocumentCommand{\propp}{+m+m}{
-%  \begin{myproposition}{}{}
-%    #1
-%  \end{myproposition}
-
-%  \begin{proppf}
-%    #2
-%  \end{proppf}
-%}
-
-%% ============================
-%% Claim
-%% ============================
-
-%\newtcbtheorem[use counter from=mydefinition]{myclaim}{Claim}
-%{
-%  enhanced,
-%  frame hidden,
-%  titlerule=0mm,
-%  toptitle=1mm,
-%  bottomtitle=1mm,
-%  fonttitle=\bfseries\large,
-%  coltitle=black,
-%  colbacktitle=clmscol!40!white,
-%  colback=clmscol!20!white,
-%}{clm}
-
-%\NewDocumentCommand{\clm}{m+m}{
-%  \begin{myclaim*}{#1}{}
-%    #2
-%  \end{myclaim*}
-%}
-
-%\newenvironment{clmpf}{
-%  {\noindent{\it \textbf{Proof for Claim.}}}
-%  \tcolorbox[blanker,breakable,left=5mm,parbox=false,
-%    before upper={\parindent15pt},
-%    after skip=10pt,
-%  borderline west={1mm}{0pt}{clmscol!40!white}]
-%}{
-%  \textcolor{clmscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$}
-%  \endtcolorbox
-%}
-
-%\NewDocumentCommand{\clmp}{m+m+m}{
-%  \begin{myclaim*}{#1}{}
-%    #2
-%  \end{myclaim*}
-
-%  \begin{clmpf}
-%    #3
-%  \end{clmpf}
-%}
-
-%% ============================
-%% Бизнесс-кейс
-%% ============================
-
-\newtcbtheorem[use counter from=mydefinition]{myfact}{Бизнесс-кейс}
-{
-  enhanced,
-  frame hidden,
-  titlerule=0mm,
-  toptitle=1mm,
-  bottomtitle=1mm,
-  fonttitle=\bfseries\large,
-  coltitle=black,
-  colbacktitle=facscol!40!white,
-  colback=facscol!20!white,
-  opacityback=0.4, % Параметр, который отвечает за прозрачность
-  opacitybacktitle=0.5
-}{fact}
-
-\NewDocumentCommand{\case}{+m}{
-  \begin{myfact}{}{}
-    #1
-  \end{myfact}
-}
-
-%% ============================
-%% Proof
-%% ============================
-
-%\NewDocumentCommand{\pf}{+m}{
-%  \begin{proof}
-%    [\noindent\textbf{Proof.}]
-%    #1
-%  \end{proof}
-%}
-
-%% ============================
-%% Вопросы для самопроверки
-%% ============================
-
-
-\newenvironment{questions}{
-  \tcolorbox[blanker,breakable,left=5mm,parbox=false,
-    before upper={\parindent15pt},
-    after skip=10pt,
-  borderline west={1mm}{0pt}{clmscol!40!white}]
-}{
-  \textcolor{clmscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$}
-  \endtcolorbox
-}
-
-\NewDocumentCommand{\que}{m+m}{
-  \begin{questions}
-    {\noindent{\it \textbf{\large{Вопросы для самопроверки} : #1 }}}\\
-    \begin{enumerate}
-        #2
-    \end{enumerate}
-  \end{questions}
-}
-=======
 %\newtcblisting[%
 %  auto counter, % Автонумерация
 %  number within=section, % Нумерация в пределах секции
@@ -655,7 +225,6 @@
 %}
 
 % Использование:
-
 
 %% ============================
 %% Assumption
@@ -856,7 +425,6 @@
 %  \textcolor{prpscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$}
 %  \endtcolorbox
 %}
->>>>>>> 8b6123a (sdf)
 
 %% ============================
 %% Практические вопросы
@@ -879,10 +447,6 @@
     \end{enumerate}
   \end{pr_questions}
 }
-
-
-
-
 
 %\NewDocumentCommand{\propp}{+m+m}{
 %  \begin{myproposition}{}{}
@@ -976,7 +540,6 @@
 %% Example
 %% ============================
 
-
 %\newenvironment{myexample}{
 %  \tcolorbox[blanker,breakable,left=5mm,parbox=false,
 %    before upper={\parindent15pt},
@@ -994,11 +557,9 @@
 %  \end{myexample}
 %}
 
-
 %% ============================
 %% Remark
 %% ============================
-
 
 %\NewDocumentCommand{\rmk}{+m}{
 %  {\it \color{rmkscol!40!white}#1}
@@ -1023,18 +584,6 @@
 %    #1
 %  \end{remark}
 %}
-
-
-
-
-
-
-
-
-
-
-
-
 
 % % Old styles hh
 
