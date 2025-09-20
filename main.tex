@@ -1,17 +1,13 @@
 \documentclass[11pt]{report}
-\usepackage{tex/sty}
-\usepackage{xcolor} % добавил
-\usepackage{indentfirst} % добавил. Каждый новый абзац начинается с
-% красной строки
-\setlength{\parindent}{1.25cm} % доабвил
-\renewcommand{\baselinestretch}{1.25} % добавил -  — в таком случае
-% междустрочный интервал будет полуторным.
-\input{theorems}
-%\include{tex/title}
-\begin{document}
-%Title Page
 
-%\include{theorems}
+% добавляем стилевой файл
+\usepackage{tex/sty}
+% добавляем файл с командами для отделения смысловых блоков
+\input{tex/highlighting}
+
+\begin{document}
+
+%Title Page
 \include{tex/title}
 \include{tex/python_highlighting}
 
