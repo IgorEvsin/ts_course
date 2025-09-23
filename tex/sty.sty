@@ -1,10 +1,15 @@
 \usepackage[a4paper]{geometry}
 \geometry{a4paper, top=1.3in, bottom=1.3in, left=1in, right=1in}
 \usepackage{amsfonts}
+\usepackage{titling}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{setspace}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+\usepackage{hyperref}
+\hypersetup{pageanchor=false} % ОТКЛЮЧИТЬ автоматические якоря
+\usepackage{bookmark}
+\bookmarksetup{open,numbered}
 \usepackage{acro}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -12,6 +17,11 @@
 \usepackage{subcaption}
 \usepackage{cancel}
 \usepackage{tikz}
+\usepackage{tcolorbox} % Основной пакет
+\tcbuselibrary{theorems,listings,skins,breakable} % Библиотека для теорем
+\usepackage{amssymb} % Для символа \blacksquare
+\usepackage{xcolor}
+\usepackage{listings}
 \usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
     decorations.pathreplacing,decorations.pathmorphing,shapes,%
     matrix,shapes.symbols}
@@ -68,3 +78,30 @@
 \usepackage{csquotes}
 \usepackage[backend=biber, style=gost-numeric]{biblatex}
 \addbibresource{books/ts_course.bib}
+\usepackage{xcolor}
+\usepackage{indentfirst}
+\setlength{\parindent}{1.25cm}
+\renewcommand{\baselinestretch}{1.25}
+
+
+\newtcblisting[%
+  auto counter, % Автонумерация
+  number within=section, % Нумерация в пределах секции
+  list inside=lol % Для списка листингов (если нужно)
+]{pythonexample}{%
+  colback=white,
+  colframe=black,
+  listing only,
+  listing options={%
+    language=Python,
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red}
+  }
+}
