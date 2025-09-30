@@ -23,6 +23,7 @@ sqlalchemy = "^2.0.35"
 pymysql = "^1.1.1"
 tqdm = "^4.66.5"
 sktime = "^0.33.1"
+statsmodels = "^0.14.5"
 
 [build-system]
 requires = ["poetry-core"]
