@@ -80,30 +80,9 @@
   \end{mydefinition}
 }
 
-%\NewDocumentCommand{\defnr}{mm+m}{
-%  \begin{mydefinition}{#1}{#2}
-%    #3
-%  \end{mydefinition}
-%}
-
 %% ============================
 %% Кейс
 %% ============================
-
-%\newtcbtheorem[use counter from=mydefinition]{myfact}{Бизнесс-кейс}
-%{
-%  enhanced,
-%  frame hidden,
-%  titlerule=0mm,
-%  toptitle=1mm,
-%  bottomtitle=1mm,
-%  fonttitle=\bfseries\large,
-%  coltitle=black,
-%  colbacktitle=defscol!40!white,
-%  colback=defscol!20!white,
-%  opacityback=0.4, % Параметр, который отвечает за прозрачность
-%  opacitybacktitle=0.5
-%}{fact}
 
 \newtcbtheorem[use counter from=mydefinition]{myfact}{Кейс}
 {
@@ -148,12 +127,6 @@
   \end{myassumption}
 }
 
-%\NewDocumentCommand{\asumr}{mm+m}{
-%  \begin{myassumption}{#1}{#2}
-%    #3
-%  \end{myassumption}
-%}
-
 %% ============================
 %% Теорема
 %% ============================
@@ -178,12 +151,6 @@
   \end{mytheorem}
 }
 
-%\NewDocumentCommand{\theoremr}{mm+m}{
-%  \begin{mytheorem}{#1}{#2}
-%    #3
-%  \end{mytheorem}
-%}
-
 %% ============================
 %% Контрольные вопросы
 %% ============================
@@ -199,7 +166,7 @@
 
 \NewDocumentCommand{\question}{m+m}{
   \begin{pr_questions}
-    {\noindent{\it \textbf{\large{Контрольные вопросы} : #1 }}}\\
+    {\noindent{\it \textbf{\large{Контрольные вопросы} : #1 }}}
     \begin{enumerate}
         #2
     \end{enumerate}
@@ -228,27 +195,8 @@
 }
 
 %% ============================
-%% Контрольные вопросы
+%% Оформление питон- кода
 %% ============================
-
-%\newenvironment{questions}{
-%  \tcolorbox[blanker,breakable,left=5mm,parbox=false,
-%    before upper={\parindent15pt},
-%    after skip=10pt,
-%  borderline west={1mm}{0pt}{clmscol!40!white}]
-%}{
-%  \textcolor{clmscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$}
-%  \endtcolorbox
-%}
-
-%\NewDocumentCommand{\question}{m+m}{
-%  \begin{questions}
-%    {\noindent{\it \textbf{\large{Контрольные вопросы} : #1 }}}\\
-%    \begin{enumerate}
-%        #2
-%    \end{enumerate}
-%  \end{questions}
-%}
 
 \lstdefinestyle{python}{
   numbers=left,
