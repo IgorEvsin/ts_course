@@ -173,11 +173,11 @@ X(t) = \sigma \cdot W(t),
 \item \( W(t) \) — стандартный белый шум в дискретном времени \(t
   \in \mathbb{Z}\), \(
   E[W(t)] = 0 \), единичной дисперсией \( \text{Var}[W(t)] = 1 \),
-и автокорреляцией \( R_W(\tau) = \delta(\tau) \)),
-% FIXME: в случае чего, надо дополнительно прописать, что
-% \delta(\tau) - это функция Дирака
+  и автокорреляцией \( R_W(\tau) = \delta(\tau) \),
+  % FIXME: в случае чего, надо дополнительно прописать, что
+  % \delta(\tau) - это функция Дирака
 \item \( \sigma \) — случайная величина, не зависящая от \( W(t)
-\), с \( E[\sigma^2] < \infty \).
+  \), с \( E[\sigma^2] < \infty \).
 \end{itemize}
 
 %\section*{Доказательство стационарности}
@@ -187,18 +187,18 @@ X(t) = \sigma \cdot W(t),
 %\textbf{Условия стационарности в широком смысле:}
 \begin{itemize}
 \item Среднее не зависит от времени:
-\[
-  E[X(t)] = E[\sigma \cdot W(t)] = E[\sigma] \cdot E[W(t)] = 0.
-\]
+  \[
+    E[X(t)] = E[\sigma \cdot W(t)] = E[\sigma] \cdot E[W(t)] = 0.
+  \]
 
 \item Автокорреляционная функция зависит только от разности \( \tau
-= t_1 - t_2 \):
-\[
-  R_X(t_1, t_2) = E[X(t_1)X(t_2)] = E[\sigma^2 W(t_1) W(t_2)] =
-  E[\sigma^2] \cdot \delta(t_1 - t_2).
-\]
-Обозначим \( R_X(\tau) = E[\sigma^2] \delta(\tau) \), что зависит
-только от \( \tau \).
+  = t_1 - t_2 \):
+  \[
+    R_X(t_1, t_2) = E[X(t_1)X(t_2)] = E[\sigma^2 W(t_1) W(t_2)] =
+    E[\sigma^2] \cdot \delta(t_1 - t_2).
+  \]
+  Обозначим \( R_X(\tau) = E[\sigma^2] \delta(\tau) \), что зависит
+  только от \( \tau \).
 \end{itemize}
 
 \textbf{Вывод:}\\
@@ -210,46 +210,46 @@ X(t) = \sigma \cdot W(t),
 %\subsection*{Среднее значение}
 \textit{2.1 Среднее значение:}
 \begin{itemize}
-%\item \textbf{По ансамблю:} \( E[X(t)] = 0 \) (доказано выше).
-%\item \textbf{По времени (для одной реализации):}
+  %\item \textbf{По ансамблю:} \( E[X(t)] = 0 \) (доказано выше).
+  %\item \textbf{По времени (для одной реализации):}
 \item {По ансамблю:} \( E[X(t)] = 0 \) (доказано выше).
 \item {По времени (для одной реализации):}
-\[
-  \lim_{T \to \infty} \frac{1}{T} \int_{-T/2}^{T/2} X(t) \, dt =
-  \sigma \cdot \lim_{T \to \infty} \frac{1}{T} \int_{-T/2}^{T/2}
-  W(t) \, dt = 0 \quad \text{(т.к. \( W(t) \) имеет нулевое среднее)}.
-\]
-Здесь совпадение есть.
+  \[
+    \lim_{T \to \infty} \frac{1}{T} \int_{-T/2}^{T/2} X(t) \, dt =
+    \sigma \cdot \lim_{T \to \infty} \frac{1}{T} \int_{-T/2}^{T/2}
+    W(t) \, dt = 0 \quad \text{(т.к. \( W(t) \) имеет нулевое среднее)}.
+  \]
+  Здесь совпадение есть.
 \end{itemize}
 
 %\subsection*{Дисперсия (второй момент)}
 \textit{2.2 Дисперсия (второй момент):}
 \begin{itemize}
-%\item \textbf{По ансамблю:}
+  %\item \textbf{По ансамблю:}
 \item {По ансамблю:}
-\[
-  E[X^2(t)] = E[\sigma^2 W^2(t)] = E[\sigma^2] \cdot E[W^2(t)] =
-  E[\sigma^2] \cdot \delta(0).
-\]
-(Для дискретного белого шума \( \delta(0) = 1 \), для
-непрерывного — обобщённая функция.)
+  \[
+    E[X^2(t)] = E[\sigma^2 W^2(t)] = E[\sigma^2] \cdot E[W^2(t)] =
+    E[\sigma^2] \cdot \delta(0).
+  \]
+  (Для дискретного белого шума \( \delta(0) = 1 \), для
+  непрерывного — обобщённая функция.)
 
-%\item \textbf{По времени (для одной реализации):}
+  %\item \textbf{По времени (для одной реализации):}
 \item {По времени (для одной реализации):}
-\[
-  \lim_{T \to \infty} \frac{1}{T} \int_{-T/2}^{T/2} X^2(t) \, dt
-  = \sigma^2 \cdot \lim_{T \to \infty} \frac{1}{T}
-  \int_{-T/2}^{T/2} W^2(t) \, dt = \sigma^2 \cdot E[W^2(t)] = \sigma^2.
-\]
-Но \( \sigma^2 \) — случайная величина, а не константа \( E[\sigma^2] \).
+  \[
+    \lim_{T \to \infty} \frac{1}{T} \int_{-T/2}^{T/2} X^2(t) \, dt
+    = \sigma^2 \cdot \lim_{T \to \infty} \frac{1}{T}
+    \int_{-T/2}^{T/2} W^2(t) \, dt = \sigma^2 \cdot E[W^2(t)] = \sigma^2.
+  \]
+  Но \( \sigma^2 \) — случайная величина, а не константа \( E[\sigma^2] \).
 \end{itemize}
 
 \textbf{Вывод:}
 \begin{itemize}
 \item Для \textbf{среднего} эргодичность есть.
 \item Для \textbf{дисперсии (и более высоких моментов)}
-эргодичности \textbf{нет}, так как усреднение по времени даёт \(
-\sigma^2 \), а не \( E[\sigma^2] \).
+  эргодичности \textbf{нет}, так как усреднение по времени даёт \(
+  \sigma^2 \), а не \( E[\sigma^2] \).
 \end{itemize}
 }
 
