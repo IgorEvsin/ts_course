@@ -54,11 +54,13 @@
 \definecolor{FunctionName}{rgb}{0,0,.7}
 \definecolor{Operators}{rgb}{0,0,0}
 \definecolor{Background}{rgb}{0.98,0.98,0.98}
+\definecolor{facscol}{HTML}{28a8a1} %For facts
+\definecolor{softmint}{RGB}{200, 255, 200} % Менее яркий салатовый
 
 % ============================
-% Definition
+% Определение
 % ============================
-\newtcbtheorem[number within=section]{mydefinition}{Definition} %%
+\newtcbtheorem[number within=section]{mydefinition}{Определение} %%
 % Подбирает номер секции
 {
   enhanced,
@@ -78,16 +80,35 @@
   \end{mydefinition}
 }
 
-\NewDocumentCommand{\defnr}{mm+m}{
-  \begin{mydefinition}{#1}{#2}
-    #3
-  \end{mydefinition}
+%% ============================
+%% Кейс
+%% ============================
+
+\newtcbtheorem[use counter from=mydefinition]{myfact}{Кейс}
+{
+  enhanced,
+  frame hidden,
+  titlerule=0mm,
+  toptitle=1mm,
+  bottomtitle=1mm,
+  fonttitle=\bfseries\large,
+  coltitle=black,
+  colbacktitle=facscol!40!white,
+  colback=facscol!20!white,
+  opacityback=0.4, % Параметр, который отвечает за прозрачность
+  opacitybacktitle=0.5
+}{fact}
+
+\NewDocumentCommand{\case}{+m}{
+  \begin{myfact}{}{}
+    #1
+  \end{myfact}
 }
 
 %% ============================
-%% Assumption
+%% Предпосылка
 %% ============================
-\newtcbtheorem[use counter from=mydefinition]{myassumption}{Assumption}
+\newtcbtheorem[use counter from=mydefinition]{myassumption}{Предпосылка}
 {
   enhanced,
   frame hidden,
@@ -106,18 +127,12 @@
   \end{myassumption}
 }
 
-\NewDocumentCommand{\asumr}{mm+m}{
-  \begin{myassumption}{#1}{#2}
-    #3
-  \end{myassumption}
-}
-
 %% ============================
-%% Theorem
+%% Теорема
 %% ============================
 
 % TODO: разобраться, как сделать попрозрачнее
-\newtcbtheorem[use counter from=mydefinition]{mytheorem}{Theorem}
+\newtcbtheorem[use counter from=mydefinition]{mytheorem}{Теорема}
 {
   enhanced,
   frame hidden,
@@ -130,20 +145,14 @@
   colback=thmscol!20!white,
 }{thm}
 
-\NewDocumentCommand{\thm}{m+m}{
+\NewDocumentCommand{\theorem}{m+m}{
   \begin{mytheorem}{#1}{}
     #2
   \end{mytheorem}
 }
 
-\NewDocumentCommand{\thmr}{mm+m}{
-  \begin{mytheorem}{#1}{#2}
-    #3
-  \end{mytheorem}
-}
-
 %% ============================
-%% Практические вопросы
+%% Контрольные вопросы
 %% ============================
 \newenvironment{pr_questions}{
   \tcolorbox[blanker,breakable,left=5mm,parbox=false,
@@ -155,9 +164,9 @@
   \endtcolorbox
 }
 
-\NewDocumentCommand{\prque}{m+m}{
+\NewDocumentCommand{\question}{m+m}{
   \begin{pr_questions}
-    {\noindent{\it \textbf{\large{Практические вопросы} : #1 }}}\\
+    {\noindent{\it \textbf{\large{Контрольные вопросы} : #1 }}}
     \begin{enumerate}
         #2
     \end{enumerate}
@@ -165,7 +174,7 @@
 }
 
 %% ============================
-%% Example
+%% Пример
 %% ============================
 
 \newenvironment{myexample}{
@@ -180,10 +189,14 @@
 
 \NewDocumentCommand{\ex}{m+m}{
   \begin{myexample}
-    {\noindent{\it \textbf{Example : #1 }}}\\
+    {\noindent{\it \textbf{Пример : #1 }}}\\
     #2
   \end{myexample}
 }
+
+%% ============================
+%% Оформление питон- кода
+%% ============================
 
 \lstdefinestyle{python}{
   numbers=left,

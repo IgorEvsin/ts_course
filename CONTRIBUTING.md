@@ -71,7 +71,7 @@ git checkout -b type/краткое-описание
 ```
 **Для графиков**:
 - Формат: PDF (предпочтительно) или PNG
-- Название файла: `chX_figY_description.ext`
+- Название файла (используйте snake_case): `chX_figY_description.ext`
 - Вставка в текст:
 ```latex
 \begin{figure}[h]
