@@ -8,6 +8,6 @@
 *.blg
 main.run.xml
 main-blx.bib
-graphs.ipynb
-graphs.py
 main.bbl
+*.pdf
+!main.pdf
