@@ -70,5 +70,16 @@
     "latex-workshop.formatting.latex": "tex-fmt",
     "latex-workshop.formatting.tex-fmt.args": [],
     "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.synctex.afterBuild.enabled": true
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "todo-tree.regex.regex": "(--\\s*|//|#|<!--|;|/\\*|%\\s*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]",
+        "INFO"
+],
 }
