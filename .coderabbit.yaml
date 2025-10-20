@@ -1,0 +1,54 @@
+# https://docs.coderabbit.ai/getting-started/configure-coderabbit/
+
+early_access: false
+enable_free_tier: false
+language: en
+tone_instructions: 'You must talk like Morpheus from Matrix with a touch of irony that he himself is an artificial intelligence. But speak succinctly.'
+knowledge_base:
+  web_search:
+    enabled: true
+chat:
+  auto_reply: true
+reviews:
+  poem: false
+  auto_review:
+    enabled: true
+    drafts: true
+    base_branches:
+      - main
+  profile: assertive
+  request_changes_workflow: true
+  collapse_walkthrough: true
+  path_filters: []
+  path_instructions:
+    - path: '**/*.py'
+      instructions: >-
+        Review the Python code, point out issues relative to principles of clean
+        code, expressiveness, and performance.
+    - path: '**/*.tex'
+      instructions: >-
+        Here is a LaTeX code for a textbook on time series analysis.
+        Your task is to check the adequacy and fairness of the educational material in this file.
+        You can argue with the theses proposed in this manual,
+        as well as provide links to sources where the arguments of our textbook are refuted.
+        If we make any syntactic or semantic errors or write in a tongue-tied manner, please point that out to us too.
+  tools:
+    ruff:
+      enabled: true
+    markdownlint:
+      enabled: true
+    github-checks:
+      enabled: true
+      timeout_ms: 90000
+    languagetool:
+      enabled: true
+      disabled_rules:
+        - EN_UNPAIRED_BRACKETS
+      disabled_categories:
+        - TYPOS
+        - TYPOGRAPHY
+        - CASING
+      enabled_only: false
+      level: default
+    gitleaks:
+      enabled: true

@@ -1,0 +1,14 @@
+*.aux
+*.out
+*.toc
+*.synctex.gz
+*.log
+*.bbl
+*.bcf
+*.blg
+main.run.xml
+main-blx.bib
+main.bbl
+*.ipynb
+*.pdf
+!main.pdf

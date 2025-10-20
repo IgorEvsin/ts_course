@@ -1,0 +1,85 @@
+{    "[latex]": {
+        "editor.formatOnSave": true,
+    },
+    "latex-workshop.latex.tools": [
+        {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOCFILE%"
+        ]
+        },
+        {
+        "name": "biber",
+        "command": "biber",
+        "args": ["%DOCFILE%"]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+        "name": "pdflatex → biber → pdflatex x2",
+        "tools": [
+            "pdflatex",
+            "biber",
+            "pdflatex",
+            "pdflatex"
+        ]
+        }
+    ],
+    "latex-workshop.latex.autoBuild.run": "onSave", // Автосборка при сохранении
+    "latex-workshop.latex.clean.fileTypes": [       // Какие файлы удалять при очистке
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.bcf",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.snm",
+        "*.nav",
+        "*.run.xml"
+    ],
+    "files.exclude": {
+        "**/*.aux": true,
+        "**/*.synctex.gz": true,
+        "**/*.bbl": true,
+        "**/*.bcf": true,
+        "**/*.blg": true,
+        "**/*.xml": true,
+        "**/*.toc": true,
+        "**/*.out": true,
+        "**/*.log": true,
+    },
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+    "latex-workshop.formatting.latex": "tex-fmt",
+    "latex-workshop.formatting.tex-fmt.args": [],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "todo-tree.regex.regex": "(--\\s*|//|#|<!--|;|/\\*|%\\s*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]",
+        "INFO"
+],
+}

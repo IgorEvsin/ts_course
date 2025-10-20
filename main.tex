@@ -1,0 +1,30 @@
+\documentclass[11pt]{report}
+
+% добавляем стилевой файл
+\usepackage{tex/sty}
+% добавляем файл с командами для отделения смысловых блоков
+\input{tex/highlighting}
+
+\begin{document}
+
+%Title Page
+\include{tex/title}
+
+% Chapter 0
+\include{src/0. Getting started/01_getting_started}
+\include{src/0. Getting started/02_problems}
+\include{src/0. Getting started/03_definitions}
+\include{src/0. Getting started/04_forecast_quality}
+\include{src/0. Getting started/05_metrics}
+\include{src/0. Getting started/06_questions}
+
+% Chapter 1
+\include{src/1. Time series components/01_mece_decomposition}
+
+% Chapter 5
+\include{src/5. Properties of time series/01_technical_properties}
+
+% Chapter 6
+\include{src/6. Process properties/properties}
+
+\end{document}
