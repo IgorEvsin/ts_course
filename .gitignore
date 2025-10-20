@@ -9,5 +9,6 @@
 main.run.xml
 main-blx.bib
 main.bbl
+*.ipynb
 *.pdf
 !main.pdf
