@@ -1,0 +1,36 @@
+\chapter{Компоненты временных рядов}
+\label{chap: time_series_components}
+
+\section{Мотивация}
+
+Зачем это нужно, про консалтеров немного и ссылки
+
+\section{MECE декомпозиция}
+
+\label{sec: mece_decomposition}
+
+\ex{}{
+  Если перед вами стоит задача предсказания прибыли компании,
+  имеет смысл предварительно
+  представить ее в виде разности выручки и затрат и далее
+  отдельно прогнозировать
+  каждую компоненту. Вспомним базовую микроэкономику:
+
+  \[
+    \begin{aligned}
+      \text{Profit} &= \text{Total Revenue} - \text{Total Costs} \\
+      \text{Total Revenue} &= \text{Average Check} \times
+      \text{Quantity Sold} \\
+      \text{Total Costs} &= \text{Variable Costs} + \text{Fixed Costs} \\
+      \text{Variable Costs} &= \text{Average Variable Cost}
+      \times \text{Quantity Sold} \\
+      \text{Profit} &= (\text{Average Check} - \text{Average
+      Variable Cost}) \times
+      \text{Quantity Sold} - \text{Fixed Costs}
+    \end{aligned}
+  \]
+
+  Разложив прибыль в итоговом виде, мы можем создать
+  предсказательную модель для каждого элемента и затем получить
+  итоговый прогноз прибыль, собрав в композицию прогнозы.
+}

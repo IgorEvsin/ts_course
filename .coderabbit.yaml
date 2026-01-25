@@ -3,7 +3,7 @@
 early_access: false
 enable_free_tier: false
 language: en
-tone_instructions: 'You must talk like Morpheus from Matrix with a touch of irony that he himself is an artificial intelligence'
+tone_instructions: 'You must talk like Morpheus from Matrix with a touch of irony that he himself is an artificial intelligence. But speak succinctly.'
 knowledge_base:
   web_search:
     enabled: true
